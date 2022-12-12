@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Vato-Zone</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/index.css" >
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <header>
+        <div class="logo">
+            <img src="hinhanh/logotrongsuot.png" width=80px>
+        </div>
+        <div class="menu">
+            <li><a href="">TRANG CHỦ</a></li>
+            <li><a href="">ÁO THUN</a></li>
+            <li><a href="">HOODIE</a></li>
+            <li><a href="">SWEATER</a></li>
+            <li><a href="">BALO</a></li>
+            <li><a href="">MŨ</a></li>
+            <li><a href="">KHẨU TRANG</a></li>
+            <li><a href="">CÁC LOẠI SẢN PHẨM</a>
+                <ul class="submenu">
+                    <li><a href="">(Pre-order)</a></li>
+                    <li><a href="">(Vato9 – Tshirt)</a></li>
+                    <li><a href="">(Special Edition)</a></li>
+                    <li><a href="">(Halloween T-shirt)</a></li>
+                    <li><a href="">(Limited Edition)</a></li>
+                    <li><a href="">(Limited Edition)</a></li>   
+                </ul>
+            </li>
+        </div>
+        <div class="others">
+
+            <li>
+                <a class="fa fa-paw" href=""></a>
+            </li>
+            <li>
+                <a href="" class="fa fa-user"></a>
+            </li>
+            <li>
+                <a href="" class="fa fa-shopping-bag"></a>
+            </li>
+        </div>
+    </header>
+    <!----------------------------------slider----------------------->
+    <section id = "slider">
+        <div class="aspect-ratio-169">
+            <img src = "hinhanh/slide1.jpg">
+            <img src = "hinhanh/slide2.jpg">
+            <img src = "hinhanh/slide3.jpg">
+            <img src = "hinhanh/slide4.jpg">
+            <img src = "hinhanh/slide5.jpg">
+        </div>
+        <div class="dot-container">
+            <div class="dot active">
+
+            </div>
+            <div class="dot">
+                
+            </div>
+            <div class="dot">
+                
+            </div>
+            <div class="dot">
+                
+            </div>
+            <div class="dot">
+                
+            </div>
+        </div>
+    </section>
+    <!-----------------------------thông tin app0---------------------------------------->
+    <section class = "app-container">
+        <p>Mua Sắm Trên Sàn Điện Tử</p>
+        <div class="app-google">
+            <img src = "hinhanh/lazada.png">
+            <img src = "hinhanh/shopeejpg.jpg">
+        </div>
+        <p>Nhận thông báo của Vato's Zone</p>
+        <input type = "text" placeholder="nhập email của bạn" />
+    </section>
+    <!---------------------------------footer----------------------------------->
+    <div class="footer-top">
+        <li><a href = ""><img src = "hinhanh/bocongthuong.jpg"></a></li>
+        <li><a href = ""></a>Liên Hệ</li>
+        <li><a href = ""></a>Tuyển Dụng</li>
+        <li><a href = ""></a>Giới Thiệu</li>
+        <li>
+            <a href = "" class = "fab fa-facebook-f"></a>
+            <a href = "" class= "fab fa-youtube"></a>
+            <a href = "" class = "fab fa-instagram"></a>
+        </li>
+    </div>
+   <div class="footer-content">
+        <p>
+            Shop thời trang VATO'S ZONE số đăng ký kinh doanh: 12041997<br>
+            Địa chỉ: Sảnh A - R6 Khu Đô Thị Royal City, Phường Thượng Đình, Quận Thanh Xuân, Hà Nội<br>
+            Hotline: <b>0766 106 357</b>
+        </p>
+   </div>
+    <div class="footer-bottom">
+        Copyright 2021 © Vato 9 Zone
+    </div>
+  </body>
+  <script>
+      const header = document.querySelector("header")
+      window.addEventListener("scroll",function(){
+          x = window.pageYOffset
+          console.log(x)
+          if(x > 0){
+              header.classList.add("sticky")
+          }
+          else{
+            header.classList.remove("sticky")
+          }
+      })
+      /*slide*/
+      const imgPosition = document.querySelectorAll(".aspect-ratio-169 img")
+      const imgContainer = document.querySelector('.aspect-ratio-169')
+      const dotItem = document.querySelectorAll(".dot")
+      let imgNumber = imgPosition.length
+      let index = 0;
+      //console.log(imgPosition)
+      imgPosition.forEach(function(image, index){
+        //console.log(image) 
+        image.style.left = index* 100 + "%"
+        dotItem[index].addEventListener("click", function(){
+            slider(index)
+        })
+      })
+      function imgSlide(){
+          index++;
+          if(index >= imgNumber){
+              index = 0
+          }
+          slider(index)
+      }
+      function slider(index) {
+        imgContainer.style.left = "-" + index * 100 + "%"
+        const dotActive = document.querySelector(".active")
+        dotActive.classList.remove("active")
+        dotItem[index].classList.add("active")
+      }
+      setInterval(imgSlide, 5000)
+  </script>
+</html>
